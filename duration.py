@@ -20,7 +20,7 @@ description_list = []                #initializing a description list
 description = ""                     #initializing a string variable
 for durations in duration_list:
     if durations < 700:
-        description_list.append("s")
+        description_list.append("S")
     elif durations > 800:
         description_list.append("L") #appending string to the description list
     else:
