@@ -1,0 +1,30 @@
+old_list=[]
+new_list=[]
+for item in old_list:
+     if conditional:
+        new_list.append(expression)
+
+new_list = [ expression for item in old_list if conditional ]
+
+
+old_list = []
+new_list = []
+for i in old_list:
+    if filter(i):
+         new_list.append(expressions(i))
+
+new_list = [ expression(i) for i in old_list if filter(i) ]
+
+
+
+expression(i)
+Expression is based on the variable used for each element in the old list.
+
+for i in old_list
+The word for followed by the variable name to use, followed by the word in the
+old list.
+
+if filter(i)
+Apply a filter with an If-statement.
+
+*result*  = [*transform*    *iteration*         *filter*     ]
