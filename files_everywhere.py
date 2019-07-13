@@ -5,7 +5,9 @@ for file_name in list_of_files:
     data = open(file_name).read()
     text_inside.append(data)
 print(list_of_files)
+print(len(list_of_files))
 print(text_inside)
+print(len(text_inside))
 print(text_inside.count("0"))
 
 tuple = tuple(zip(text_inside, list_of_files))
@@ -27,10 +29,15 @@ for num in text_inside:
             list_of_files.remove(number)
 print(list_of_files)
 no_child =list_of_files
+has_no_child = no_child.sort()
 print(no_child)
 print(len(no_child))
 
-
+file_names = set(map(lambda x: ''.join(filter(str.isdigit, x)), list_of_files))
+with_child = set(f_name for f_name in file_names for content in text_inside   if f_name == content)
+without_child = file_names - with_child
+print(without_child)
+print(len(without_child))
 
 
 
