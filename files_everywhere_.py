@@ -1,75 +1,75 @@
 import glob
 list_of_files = glob.glob("D:\Python./files/*.txt")
-text_inside=[]
+lst=[]
 for file_name in list_of_files:
     data = open(file_name).read()
-    text_inside.append(data)
+    lst.append(data)
 print(list_of_files)
-print(text_inside)
-
-
-tuple_text_file = tuple(zip(text_inside, list_of_files))
-print(tuple)
-
-just_parent =[]
-for first, second in tuple_text_file:
-    if first == "0":
-        just_parent.append(second)
-print(just_parent)
-
-
-#second
+print(lst)
+print(lst.count("0"))
 
 number = ""
-numbers_list=[]
-for items in list_of_files:
-    for lol in items:
+numbers_list = []
+for items1 in list_of_files:
+    for lol in items1:
         if lol.isdigit():
             number = number + lol
     numbers_list.append(number)
     number = ""
 print(numbers_list)
 
-tuple_numbers= tuple(zip(text_inside, numbers_list))
-print(tuple_numbers)
+count = 0
+lst1 = []
+for items in numbers_list:
+    if items not in lst:
+        lst1.append(numbers_list[count])
+    count += 1
+print(lst1)
+print(len(lst1))
 
-for num in text_inside:
-    for number in numbers_list:
-         if num == number:
-            numbers_list.remove(number)
-print(numbers_list)
+just_parent = []
+count2 = 0
+for items2 in lst:
+    if items2 == "0":
+        just_parent.append(numbers_list[count2])
+    count2 += 1
 print(len(numbers_list))
-no_child=[]
-for i in numbers_list:
-    no_child.append(f"D:\\Python./files\\{i}.txt")
 
+class file(object):
+    def __init__(self, name, inside):
+        self._name = name
+        self._inside = inside
+    def Numname(self):
+        return self._name
+    def Numinside(self):
+        return self._inside
 
-# third
+count = 0
+pool_num = []
+while count < 4000:
+    s = file(numbers_list[count], lst[count])
+    pool_num.append(s)
+    count += 1
 
-ust_parent_number = list(map(lambda x: ''.join(filter(str.isdigit, x)), just_parent))
-print(just_parent_number)
-print(len(just_parent_number))
-
-tuple_numbers = tuple(zip(text_inside, number_of_file_name))
-print(tuple_numbers)
-
-for inside in text_inside:
-    if inside == "0":
-        text_inside.remove(inside)
-not_just_parent_text_inside = text_inside
-print(not_just_parent_text_inside)
-print(len(not_just_parent_text_inside))
-
-parent_child_text = []
-parent_child_name = []
-for parent in just_parent_number:
-    for child in not_just_parent_text_inside:
-        if parent == child:
-            parent_child_text.append(child)
-            parent_child_name.append(tuple_numbers[number_of_file_name])
-
-# tuple_parent_child = tuple(zip(parent_child_text,  parent_child_name))
-# print(tuple_parent_child)
-# print(len(tuple_parent_child))
-
-#unfinished 
+f = []
+count1 = 0
+length = []
+paths = []
+inside_text = ""
+for item in lst1:
+    name_text = item
+    inside_text = lst[numbers_list.index(item)]
+    while inside_text != "0":
+        for items in pool_num:
+            if items.Numname() == inside_text:
+                f.append(name_text)
+                inside_text = items.Numinside()
+                name_text = items.Numname()
+                count1 += 1
+    f.append(name_text)
+    paths.append(f)
+    length.append(count1+1)
+    f = []
+    count1 = 0
+print(max(length))
+print(paths[length.index(max(length))])
