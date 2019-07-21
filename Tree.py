@@ -66,14 +66,27 @@ for i in range(4000):
 print(list_pool)
 
 
-# child_parent_name_1 =[]
-# child_parent_index_1 =[]
-# child_parent_inside_1 =[]
-# for child in child_parent_inside:
-#     for pare in name_file_digit:
-#         if child == pare:
-#             child_parent_name_1.append(pare)
-#             child_parent_index_1.append(name_file_digit.index(pare))
-#             child_parent_inside_1.append(inside_file[name_file_digit.index(pare)])
-# print(child_parent_name_1)
-# print(len(child_parent_name_1))
+count = 0
+out = ""
+inn=""
+path=[]
+paths=[]
+length =[]
+for just_child in has_no_child:
+    inside = list_of_insides[list_of_file_numbers.index(just_child)]
+    while inside != "0":
+        for items in list_pool:
+            if items.get_name() == inside:
+                path.append(just_child)
+                inside = items.get_inside()
+                out = items.get_name()
+                count = count + 1
+    path.append(out)
+    paths.append(path)
+    length.append(count + 1)
+    path = []
+    count = 0
+print(max(length))
+print(paths[length.index(max(length))])
+
+
